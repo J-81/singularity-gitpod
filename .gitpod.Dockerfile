@@ -18,9 +18,11 @@ RUN apt-get update && sudo apt-get install -y \
 RUN wget https://github.com/sylabs/singularity/releases/download/v3.8.0/singularity-ce-3.8.0.tar.gz && \
     tar -xzf singularity-ce-3.8.0.tar.gz && \
     cd singularity-ce-3.8.0 && \
-    ./mconfig --without-suid --prefix=/home/gitpod/singularity && \
+    ./mconfig && \
     make -C ./builddir && \
     make -C ./builddir install
+    
+RUN cd && rm -rf singularity-ce-3.8.*    
 
 USER gitpod
 
