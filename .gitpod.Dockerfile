@@ -13,13 +13,13 @@ RUN sudo apt-get update && sudo apt-get install -y \
     cryptsetup-bin && sudo rm -rf /var/lib/apt/lists/*
 
 # Install Singularity (Go is already installed)
-RUN wget https://github.com/sylabs/singularity/releases/download/v3.8.1/singularity-ce-3.8.1.tar.gz && \
-    tar -xzf singularity-ce-3.8.1.tar.gz && \
-    cd singularity-ce-3.8.1 && \
+RUN wget https://github.com/sylabs/singularity/releases/download/v3.8.1/singularity-ce-3.10.3.tar.gz && \
+    tar -xzf singularity-ce-3.10.3.tar.gz && \
+    cd singularity-ce-3.10.3 && \
     ./mconfig  --without-suid && \
     make -C ./builddir && \
     sudo make -C ./builddir install
     
-RUN cd && rm -rf singularity-ce-3.8.*    
+RUN cd && rm -rf singularity-ce-3.10*    
 
 RUN echo ". /usr/local/etc/bash_completion.d/singularity" >> ${HOME}/.bashrc
