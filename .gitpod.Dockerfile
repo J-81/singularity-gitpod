@@ -16,7 +16,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
 RUN wget https://github.com/sylabs/singularity/releases/download/v3.8.1/singularity-ce-3.8.1.tar.gz && \
     tar -xzf singularity-ce-3.8.1.tar.gz && \
     cd singularity-ce-3.8.1 && \
-    ./mconfig && \
+    ./mconfig  --without-suid && \
     make -C ./builddir && \
     sudo make -C ./builddir install
     
